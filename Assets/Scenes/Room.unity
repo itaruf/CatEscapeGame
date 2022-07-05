@@ -3174,6 +3174,7 @@ MonoBehaviour:
   _speed: 10
   _move: {fileID: 525352794290621712, guid: a5578420f522f5a46a9a730e935f1520, type: 3}
   _scratch: {fileID: 6376494353649532782, guid: a5578420f522f5a46a9a730e935f1520, type: 3}
+  _jump: {fileID: -3886156979630707671, guid: a5578420f522f5a46a9a730e935f1520, type: 3}
   _animatorController: {fileID: 1442682763}
 --- !u!114 &1442682762
 MonoBehaviour:
