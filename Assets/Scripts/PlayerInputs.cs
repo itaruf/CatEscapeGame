@@ -33,6 +33,14 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""6b499121-8df8-4c37-a2bf-526d3e1635d1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -167,6 +175,17 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                     ""action"": ""Scratch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""91845a8d-ce84-45e8-8e8e-afc83f115f35"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -177,6 +196,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         m_Inputs = asset.FindActionMap("Inputs", throwIfNotFound: true);
         m_Inputs_Move = m_Inputs.FindAction("Move", throwIfNotFound: true);
         m_Inputs_Scratch = m_Inputs.FindAction("Scratch", throwIfNotFound: true);
+        m_Inputs_Jump = m_Inputs.FindAction("Jump", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -228,12 +248,14 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
     private IInputsActions m_InputsActionsCallbackInterface;
     private readonly InputAction m_Inputs_Move;
     private readonly InputAction m_Inputs_Scratch;
+    private readonly InputAction m_Inputs_Jump;
     public struct InputsActions
     {
         private @PlayerInputs m_Wrapper;
         public InputsActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Inputs_Move;
         public InputAction @Scratch => m_Wrapper.m_Inputs_Scratch;
+        public InputAction @Jump => m_Wrapper.m_Inputs_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Inputs; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -249,6 +271,9 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 @Scratch.started -= m_Wrapper.m_InputsActionsCallbackInterface.OnScratch;
                 @Scratch.performed -= m_Wrapper.m_InputsActionsCallbackInterface.OnScratch;
                 @Scratch.canceled -= m_Wrapper.m_InputsActionsCallbackInterface.OnScratch;
+                @Jump.started -= m_Wrapper.m_InputsActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_InputsActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_InputsActionsCallbackInterface.OnJump;
             }
             m_Wrapper.m_InputsActionsCallbackInterface = instance;
             if (instance != null)
@@ -259,6 +284,9 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 @Scratch.started += instance.OnScratch;
                 @Scratch.performed += instance.OnScratch;
                 @Scratch.canceled += instance.OnScratch;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
             }
         }
     }
@@ -267,5 +295,6 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnScratch(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
     }
 }
