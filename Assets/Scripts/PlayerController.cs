@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
 
         // Scratch
         _scratch.action.started += Scratch;
+        /*_scratch.action.canceled += MoveCanceled;*/
     }
 
     private void OnDestroy()
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     private void Scratch(InputAction.CallbackContext obj)
     {
-        _animatorController.TriggerAnimation("Scratch"); 
+        _animatorController.TriggerAnimation("Scratch");
     }
 
     private void MoveInput(InputAction.CallbackContext obj)
@@ -63,7 +64,8 @@ public class PlayerController : MonoBehaviour
             while (true)
             {
                 PrepareDirection(obj.ReadValue<Vector2>());
-                _animatorController.FlipSprite(obj.ReadValue<Vector2>()); 
+                _animatorController.FlipSprite(obj.ReadValue<Vector2>());
+
                 yield return null;
             }
         }
@@ -74,6 +76,7 @@ public class PlayerController : MonoBehaviour
         if (MovementTracking == null) 
             return;
 
+        Debug.Log("CANCELED");
         PrepareDirection(Vector2.zero);
 
         StopCoroutine(MovementTracking);

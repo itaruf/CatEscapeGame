@@ -28,6 +28,10 @@ public class PlayerAnimatorController : MonoBehaviour
         _animator.SetTrigger(_animations[name]);
     }
 
+    public bool IsAnimPlaying(string name)
+    {
+        return (_animator.GetCurrentAnimatorStateInfo(0).IsName(name));
+    }
     public void FlipSprite(Vector2 _direction)
     {
         switch (_direction)
