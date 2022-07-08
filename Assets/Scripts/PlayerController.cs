@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
 
     public void PrepareDirection(Vector2 v) => Direction = v.normalized;
     Coroutine MovementTracking { get; set; }
-
     // Animator
     [SerializeField] PlayerAnimatorController _animatorController;
 
@@ -56,7 +55,6 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Update Movement
         _rb.MovePosition(_rb.position + (Direction * _speed) * Time.fixedDeltaTime);
     }
 
