@@ -27,38 +27,52 @@ public class Jumpad : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (!collision.gameObject.TryGetComponent(out PlayerController PC))
-        {
-            PC._jump.action.started -= PC.JumpInput;
-            PC._jump.action.started -= PC.MoveCanceled;
-            PC._jump.action.started -= JumpInput;
-
-            StopCoroutine(JumpAnim(target));
             return;
-        }
 
         PC._jump.action.started += PC.JumpInput;
         PC._jump.action.started += PC.MoveCanceled;
         PC._jump.action.started += JumpInput;
 
         target = collision.gameObject;
+
+        Debug.Log("test");
     }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (!collision.gameObject.TryGetComponent(out PlayerController PC))
+            return;
+
+        StopCoroutine(JumpAnim(target, _jumpEnter.gameObject));
+        StopCoroutine(JumpAnim(target, _jumpExit.gameObject));
+
+        PC._jump.action.started -= PC.JumpInput;
+        PC._jump.action.started -= PC.MoveCanceled;
+        PC._jump.action.started -= JumpInput;
+
+    }
     public void JumpInput(InputAction.CallbackContext obj)
     {
-        StartCoroutine(JumpAnim(target));
+        if (!_activated)
+            StartCoroutine(JumpAnim(target, _jumpEnter.gameObject));
+        else
+            StartCoroutine(JumpAnim(target, _jumpExit.gameObject));
     }
 
-    IEnumerator JumpAnim(GameObject target)
+    IEnumerator JumpAnim(GameObject start, GameObject end)
     {
         float timeToStart = Time.time;
-        var start = target.transform.position;
+        var s = start.transform.position;
+        var e = end.transform.position;
 
-        while (Vector3.Distance(transform.position, target.transform.position) > 0.05f)
+        while (Vector3.Distance(start.transform.position, e) > 0.05f)
         {
-            target.transform.position = Vector3.Lerp(start, transform.position + new Vector3(0, _jumpCurve.Evaluate(Time.time - timeToStart) * _speed, 0), (Time.time - timeToStart) * _speed); 
+            start.transform.position = Vector3.Slerp(s, e /*+ new Vector3(0, _jumpCurve.Evaluate(Time.time - timeToStart) * _speed, 0)*/, (Time.time - timeToStart) * _speed); 
 
             yield return null;
 
         }
+        _activated = !_activated;
+        Debug.Log(_activated);
     }
 }
