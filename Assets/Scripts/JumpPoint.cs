@@ -9,9 +9,9 @@ public class JumpPoint : MonoBehaviour
     [SerializeField] GameObject _landingLoc;
 
     [SerializeField] AnimationCurve _jumpCurve;
-
-    [SerializeField] bool _activated;
     [SerializeField] float _speed;
+
+    public bool _activated = true;
 
     // Start is called before the first frame update
     void Awake()
@@ -22,6 +22,9 @@ public class JumpPoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!_activated)
+            return;
+
         if (!collision.gameObject.TryGetComponent(out PlayerController PC))
             return;
 
@@ -36,10 +39,13 @@ public class JumpPoint : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (!_activated)
+            return;
+
         if (!collision.gameObject.TryGetComponent(out PlayerController PC))
             return;
 
-        StopCoroutine(JumpAnim(_startLoc, _landingLoc));
+        /*StopCoroutine(JumpAnim(_startLoc, _landingLoc));*/
 
         PC._jump.action.started -= PC.JumpInput;
         PC._jump.action.started -= PC.MoveCanceled;

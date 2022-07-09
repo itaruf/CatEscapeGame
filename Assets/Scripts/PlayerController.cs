@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     // Icons
     public Icon _jumpIcon = null;
+    public Icon _scratchIcon = null;
 
     // Animator
     [SerializeField] PlayerAnimatorController _animatorController;

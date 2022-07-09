@@ -2,19 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAnimatorController : AnimatorController
+public class AnimatorController : MonoBehaviour
 {
+    [SerializeField] protected Animator _animator;
+    [SerializeField] protected SpriteRenderer _sprite;
+    public Dictionary<string, int> _animations = new Dictionary<string, int>();
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
-        base.Start();
+        foreach (var anim in _animator.runtimeAnimatorController.animationClips)
+        {
+            /*Debug.Log(anim.name);*/
+            _animations.Add(anim.name, Animator.StringToHash(anim.name));
+        }
     }
 
     private void FixedUpdate()
-    { 
+    {
     }
 
-    public override void PlayAnimation(string name, bool value = true)
+    public virtual void PlayAnimation(string name, bool value = true)
     {
         if (!_animations.ContainsKey(name))
             return;
@@ -22,7 +29,7 @@ public class PlayerAnimatorController : AnimatorController
         _animator.SetBool(_animations[name], value);
     }
 
-    public override void TriggerAnimation(string name)
+    public virtual void TriggerAnimation(string name)
     {
         if (!_animations.ContainsKey(name))
             return;
@@ -30,14 +37,15 @@ public class PlayerAnimatorController : AnimatorController
         _animator.SetTrigger(_animations[name]);
     }
 
-    public override bool IsAnimPlaying(string name)
+    public virtual bool IsAnimPlaying(string name)
     {
         if (!_animations.ContainsKey(name))
             return false;
 
         return (_animator.GetCurrentAnimatorStateInfo(0).IsName(name));
     }
-    public override void FlipSprite(Vector2 _direction)
+
+    public virtual void FlipSprite(Vector2 _direction)
     {
         switch (_direction)
         {
