@@ -16,12 +16,17 @@ public class PlayerController : MonoBehaviour
 
     public void PrepareDirection(Vector2 v) => Direction = v.normalized;
     Coroutine MovementTracking { get; set; }
+
+    // Icons
+    public Icon _jumpIcon = null;
+
     // Animator
     [SerializeField] PlayerAnimatorController _animatorController;
 
-
     // Events
-    Action<InputAction.CallbackContext> _onJump;
+    /* Action<void> _onJump;*/
+    delegate void OnJump();
+    OnJump _onJump;
 
     void Start()
     {
@@ -51,6 +56,7 @@ public class PlayerController : MonoBehaviour
     public void JumpInput(InputAction.CallbackContext obj)
     {
         Debug.Log("Jump");
+        _onJump?.Invoke();
     }
 
     void FixedUpdate()
@@ -86,7 +92,6 @@ public class PlayerController : MonoBehaviour
         if (MovementTracking == null) 
             return;
 
-        Debug.Log("CANCELED");
         PrepareDirection(Vector2.zero);
 
         StopCoroutine(MovementTracking);

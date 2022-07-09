@@ -35,6 +35,8 @@ public class Jumpad : MonoBehaviour
 
         target = collision.gameObject;
 
+        PC._jumpIcon._rawImage.enabled = true;
+
         Debug.Log("test");
     }
 
@@ -50,6 +52,7 @@ public class Jumpad : MonoBehaviour
         PC._jump.action.started -= PC.MoveCanceled;
         PC._jump.action.started -= JumpInput;
 
+        PC._jumpIcon._rawImage.enabled = false;
     }
     public void JumpInput(InputAction.CallbackContext obj)
     {

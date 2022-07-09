@@ -2,8 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : Character
+public class JumpIcon : Icon
 {
+    public override void Activation()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void Deactivation()
+    {
+        throw new System.NotImplementedException();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
