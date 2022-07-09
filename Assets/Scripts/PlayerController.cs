@@ -17,6 +17,11 @@ public class PlayerController : MonoBehaviour
     public void PrepareDirection(Vector2 v) => Direction = v.normalized;
     Coroutine MovementTracking { get; set; }
 
+    // Bool movements
+    public bool _canMove = true;
+    public bool _canJump = true;
+    public bool _canScratch = true;
+
     // Icons
     public Icon _jumpIcon = null;
 
@@ -55,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
     public void JumpInput(InputAction.CallbackContext obj)
     {
-        Debug.Log("Jump");
+        Debug.Log("JUMP");
         _onJump?.Invoke();
     }
 
