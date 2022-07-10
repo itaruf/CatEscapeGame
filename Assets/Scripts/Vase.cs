@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,8 +11,10 @@ public class Vase : MonoBehaviour, IPushable
     [SerializeField] float _pushDistance = 1;
 
     bool _activated = true;
+    Action _onDeactivation;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
        /* var v = this as IPushable;
         v.OnPush();*/
@@ -51,14 +54,14 @@ public class Vase : MonoBehaviour, IPushable
         var s = start;
         var e = end;
 
-        while (Vector3.Distance(start, e) > 0.05f)
+        _onDeactivation?.Invoke();
+        _activated = false;
+
+        while (Vector3.Distance(transform.position, e) > 0.05f)
         {
             transform.position = Vector3.Lerp(s, e, (Time.time - timeToStart) * _speed);
-
             yield return null;
         }
-
-        _activated = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -68,8 +71,12 @@ public class Vase : MonoBehaviour, IPushable
 
         if (collision.gameObject.TryGetComponent(out PlayerController PC))
         {
+            PC._pushIcon.Activation();
+
             var v = this as IPushable;
             PC._onPush += v.OnPush;
+
+            _onDeactivation += PC._pushIcon.Deactivation;
         }
     }
 
@@ -80,6 +87,8 @@ public class Vase : MonoBehaviour, IPushable
 
         if (collision.gameObject.TryGetComponent(out PlayerController PC))
         {
+            PC._pushIcon.Deactivation();
+
             var v = this as IPushable;
             PC._onPush -= v.OnPush;
         }

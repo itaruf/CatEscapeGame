@@ -31,10 +31,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] PlayerAnimatorController _animatorController;
 
     // Events
-    /* Action<void> _onJump;*/
-    public delegate void ActionVoid();
-    public ActionVoid _onJump;
-    public ActionVoid _onPush;
+    public Action _onJump;
+    public Action _onPush;
 
     void Start()
     {
@@ -47,10 +45,10 @@ public class PlayerController : MonoBehaviour
 
         // Scratch
         _scratch.action.started += ScratchInput;
+        /*_scratch.action.started += MoveCanceled;*/
 
         // Push
-
-        /*_scratch.action.started += MoveCanceled;*/
+        _push.action.started += PushInput;
     }
 
     private void OnDestroy()
@@ -119,8 +117,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out IPushable pushable))
         {
-            _push.action.started += PushInput;
-            _pushIcon.Activation();
+            /*_push.action.started += PushInput;*/
+            /*_pushIcon.Activation();*/
             /*pushable.OnPush();*/
         }
     }
@@ -129,8 +127,8 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out IPushable pushable))
         {
-            _push.action.started -= PushInput;
-            _pushIcon.Deactivation();
+            /*_push.action.started -= PushInput;*/
+            /*_pushIcon.Deactivation();*/
         }
     }
 }

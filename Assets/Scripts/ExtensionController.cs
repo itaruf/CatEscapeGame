@@ -5,6 +5,8 @@ using UnityEngine;
 public class ExtensionController : MonoBehaviour
 {
     [SerializeField] AnimatorController _animator;
+    [SerializeField] Particle _Pfire;
+
     public bool _activated = true;
 
     // Start is called before the first frame update
@@ -21,9 +23,17 @@ public class ExtensionController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!collision.gameObject.TryGetComponent(out PlayerController PC))
+        if (!_activated)
+            return;
+
+        if (!collision.gameObject.TryGetComponent(out IPushable pushable))
             return;
 
         _animator.PlayAnimation("Destroyed");
+        _Pfire.Activation();
+        _Pfire._animatorController.PlayAnimation("FireLoop", true);
+        Debug.Log("Destroyed");
+
+        _activated = false;
     }
 }

@@ -7,6 +7,7 @@ public class AnimatorController : MonoBehaviour
     [SerializeField] protected Animator _animator;
     [SerializeField] protected SpriteRenderer _sprite;
     public Dictionary<string, int> _animations = new Dictionary<string, int>();
+
     // Start is called before the first frame update
     protected void Start()
     {

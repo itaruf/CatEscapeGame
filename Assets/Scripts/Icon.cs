@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,8 @@ public abstract class Icon : MonoBehaviour
     [SerializeField] GameObject _target;
     [SerializeField] Vector3 _offset;
 
-    delegate void Delegate();
-    Delegate _onActivation;
-    Delegate _onDeactivation;
+    Action _onActivation;
+    Action _onDeactivation;
 
     public RectTransform _rectTransform;
     public RawImage _rawImage;
