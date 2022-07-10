@@ -67,7 +67,7 @@ public class JumpPoint : MonoBehaviour
 
         while (Vector3.Distance(start.transform.position, e) > 0.05f)
         {
-            start.transform.position = Vector3.Lerp(s, e + new Vector3(0, _jumpCurve.Evaluate(Time.time - timeToStart), 0), (Time.time - timeToStart) * _speed);
+            start.transform.position = Vector3.Lerp(s, e /*+ new Vector3(0, _jumpCurve.Evaluate(Time.time - timeToStart), 0)*/, (Time.time - timeToStart) * _speed);
 
             yield return null;
 

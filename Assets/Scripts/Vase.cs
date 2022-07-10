@@ -44,16 +44,16 @@ public class Vase : MonoBehaviour, IPushable
         switch (_direction)
         {
             case Direction.UP:
-                StartCoroutine(PushAnim(transform.position, transform.position + new Vector3(_pushDistance, 0, 0)));
+                StartCoroutine(PushAnim(transform.position, transform.position + new Vector3(0, _pushDistance, 0)));
                 break;
             case Direction.BW:
-                StartCoroutine(PushAnim(transform.position, transform.position + new Vector3(_pushDistance, 0, 0)));
+                StartCoroutine(PushAnim(transform.position, transform.position + new Vector3(0, -_pushDistance, 0)));
                 break;
             case Direction.R:
                 StartCoroutine(PushAnim(transform.position, transform.position + new Vector3(_pushDistance, 0, 0)));
                 break;
             case Direction.L:
-                StartCoroutine(PushAnim(transform.position, transform.position + new Vector3(_pushDistance, 0, 0)));
+                StartCoroutine(PushAnim(transform.position, transform.position + new Vector3(-_pushDistance, 0, 0)));
                 break;
         }
     }
