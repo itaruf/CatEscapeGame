@@ -6,33 +6,35 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header("Movement")]
     [SerializeField] Rigidbody2D _rb;
     [SerializeField] float _speed = 1;
     public Vector2 Direction { get; private set; }
 
+    [Header("Input Actions")]
     public InputActionReference _move;
     public InputActionReference _scratch;
+    public InputActionReference _push;
     public InputActionReference _jump;
 
     public void PrepareDirection(Vector2 v) => Direction = v.normalized;
     Coroutine MovementTracking { get; set; }
 
-    // Bool movements
-    public bool _canMove = true;
-    public bool _canJump = true;
-    public bool _canScratch = true;
-
+    [Header("Icons")]
     // Icons
     public Icon _jumpIcon = null;
     public Icon _scratchIcon = null;
+    public Icon _pushIcon = null;
 
+    [Header("Animator Controller")]
     // Animator
     [SerializeField] PlayerAnimatorController _animatorController;
 
     // Events
     /* Action<void> _onJump;*/
-    delegate void OnJump();
-    OnJump _onJump;
+    public delegate void ActionVoid();
+    public ActionVoid _onJump;
+    public ActionVoid _onPush;
 
     void Start()
     {
@@ -43,8 +45,11 @@ public class PlayerController : MonoBehaviour
         /*_jump.action.started += JumpInput;
         _jump.action.started += MoveCanceled;*/
 
-        // ScratchInput
+        // Scratch
         _scratch.action.started += ScratchInput;
+
+        // Push
+
         /*_scratch.action.started += MoveCanceled;*/
     }
 
@@ -75,6 +80,12 @@ public class PlayerController : MonoBehaviour
         _animatorController.TriggerAnimation("Scratch");
     }
 
+    private void PushInput(InputAction.CallbackContext obj)
+    {
+        _animatorController.TriggerAnimation("Push");
+        _onPush?.Invoke();
+    }
+
     private void MoveInput(InputAction.CallbackContext obj)
     {
         if (MovementTracking != null) 
@@ -102,5 +113,24 @@ public class PlayerController : MonoBehaviour
 
         StopCoroutine(MovementTracking);
         MovementTracking = null;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out IPushable pushable))
+        {
+            _push.action.started += PushInput;
+            _pushIcon.Activation();
+            /*pushable.OnPush();*/
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out IPushable pushable))
+        {
+            _push.action.started -= PushInput;
+            _pushIcon.Deactivation();
+        }
     }
 }

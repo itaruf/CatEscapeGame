@@ -6,14 +6,15 @@ public class Vase : MonoBehaviour, IPushable
 {
     enum Direction { UP, BW, R, L};
     [SerializeField] Direction _direction;
-    [SerializeField] float _speed;
+    [SerializeField] float _speed =  2;
+    [SerializeField] float _pushDistance = 1;
 
-
+    bool _activated = true;
     // Start is called before the first frame update
     void Start()
     {
-        var v = this as IPushable;
-        v.OnPush();
+       /* var v = this as IPushable;
+        v.OnPush();*/
     }
 
     // Update is called once per frame
@@ -24,19 +25,22 @@ public class Vase : MonoBehaviour, IPushable
 
     void IPushable.OnPush()
     {
+        if (!_activated)
+            return;
+
         switch (_direction)
         {
             case Direction.UP:
-                StartCoroutine(PushAnim(transform.position, transform.position + new Vector3(1, 0, 0)));
+                StartCoroutine(PushAnim(transform.position, transform.position + new Vector3(_pushDistance, 0, 0)));
                 break;
             case Direction.BW:
-                StartCoroutine(PushAnim(transform.position, transform.position + new Vector3(1, 0, 0)));
+                StartCoroutine(PushAnim(transform.position, transform.position + new Vector3(_pushDistance, 0, 0)));
                 break;
             case Direction.R:
-                StartCoroutine(PushAnim(transform.position, transform.position + new Vector3(1, 0, 0)));
+                StartCoroutine(PushAnim(transform.position, transform.position + new Vector3(_pushDistance, 0, 0)));
                 break;
             case Direction.L:
-                StartCoroutine(PushAnim(transform.position, transform.position + new Vector3(1, 0, 0)));
+                StartCoroutine(PushAnim(transform.position, transform.position + new Vector3(_pushDistance, 0, 0)));
                 break;
         }
     }
@@ -52,6 +56,32 @@ public class Vase : MonoBehaviour, IPushable
             transform.position = Vector3.Lerp(s, e, (Time.time - timeToStart) * _speed);
 
             yield return null;
+        }
+
+        _activated = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!_activated)
+            return;
+
+        if (collision.gameObject.TryGetComponent(out PlayerController PC))
+        {
+            var v = this as IPushable;
+            PC._onPush += v.OnPush;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (!_activated)
+            return;
+
+        if (collision.gameObject.TryGetComponent(out PlayerController PC))
+        {
+            var v = this as IPushable;
+            PC._onPush -= v.OnPush;
         }
     }
 }

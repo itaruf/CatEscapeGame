@@ -34,7 +34,7 @@ public class JumpPoint : MonoBehaviour
 
         _startLoc = collision.gameObject;
 
-        PC._jumpIcon._rawImage.enabled = true;
+        PC._jumpIcon.Activation();
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -51,7 +51,7 @@ public class JumpPoint : MonoBehaviour
         PC._jump.action.started -= PC.MoveCanceled;
         PC._jump.action.started -= JumpInput;
 
-        PC._jumpIcon._rawImage.enabled = false;
+        PC._jumpIcon.Deactivation();
     }
 
     public void JumpInput(InputAction.CallbackContext obj)

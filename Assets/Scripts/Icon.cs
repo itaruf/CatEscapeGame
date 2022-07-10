@@ -18,13 +18,12 @@ public abstract class Icon : MonoBehaviour
     void Awake()
     {
         TryGetComponent(out _rawImage);
+        TryGetComponent(out _rectTransform);
 
         if (!_rawImage)
             return;
 
         _rawImage.enabled = false;
-
-        TryGetComponent(out _rectTransform);
     }
 
     void FixedUpdate()
@@ -44,6 +43,13 @@ public abstract class Icon : MonoBehaviour
         /*_rectTransform.anchoredPosition = Camera.main.transform.TransformPoint(_target.transform.position) + _offset;*/
     }
 
-    public abstract void Activation();
-    public abstract void Deactivation();
+    public virtual void Activation()
+    {
+        _rawImage.enabled = true;
+    }
+
+    public virtual void Deactivation()
+    {
+        _rawImage.enabled = false;
+    }
 }

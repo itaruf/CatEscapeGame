@@ -35,6 +35,14 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
+                    ""name"": ""Push"",
+                    ""type"": ""Button"",
+                    ""id"": ""626392b3-f5b4-4474-aef2-62efacb12c2f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""6b499121-8df8-4c37-a2bf-526d3e1635d1"",
@@ -186,6 +194,17 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d02b68ba-4fb0-460f-965b-9d63431f59bc"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Push"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -196,6 +215,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         m_Inputs = asset.FindActionMap("Inputs", throwIfNotFound: true);
         m_Inputs_Move = m_Inputs.FindAction("Move", throwIfNotFound: true);
         m_Inputs_Scratch = m_Inputs.FindAction("Scratch", throwIfNotFound: true);
+        m_Inputs_Push = m_Inputs.FindAction("Push", throwIfNotFound: true);
         m_Inputs_Jump = m_Inputs.FindAction("Jump", throwIfNotFound: true);
     }
 
@@ -248,6 +268,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
     private IInputsActions m_InputsActionsCallbackInterface;
     private readonly InputAction m_Inputs_Move;
     private readonly InputAction m_Inputs_Scratch;
+    private readonly InputAction m_Inputs_Push;
     private readonly InputAction m_Inputs_Jump;
     public struct InputsActions
     {
@@ -255,6 +276,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         public InputsActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Inputs_Move;
         public InputAction @Scratch => m_Wrapper.m_Inputs_Scratch;
+        public InputAction @Push => m_Wrapper.m_Inputs_Push;
         public InputAction @Jump => m_Wrapper.m_Inputs_Jump;
         public InputActionMap Get() { return m_Wrapper.m_Inputs; }
         public void Enable() { Get().Enable(); }
@@ -271,6 +293,9 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 @Scratch.started -= m_Wrapper.m_InputsActionsCallbackInterface.OnScratch;
                 @Scratch.performed -= m_Wrapper.m_InputsActionsCallbackInterface.OnScratch;
                 @Scratch.canceled -= m_Wrapper.m_InputsActionsCallbackInterface.OnScratch;
+                @Push.started -= m_Wrapper.m_InputsActionsCallbackInterface.OnPush;
+                @Push.performed -= m_Wrapper.m_InputsActionsCallbackInterface.OnPush;
+                @Push.canceled -= m_Wrapper.m_InputsActionsCallbackInterface.OnPush;
                 @Jump.started -= m_Wrapper.m_InputsActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_InputsActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_InputsActionsCallbackInterface.OnJump;
@@ -284,6 +309,9 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 @Scratch.started += instance.OnScratch;
                 @Scratch.performed += instance.OnScratch;
                 @Scratch.canceled += instance.OnScratch;
+                @Push.started += instance.OnPush;
+                @Push.performed += instance.OnPush;
+                @Push.canceled += instance.OnPush;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
@@ -295,6 +323,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnScratch(InputAction.CallbackContext context);
+        void OnPush(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
     }
 }

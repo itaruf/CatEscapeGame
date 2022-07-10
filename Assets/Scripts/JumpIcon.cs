@@ -6,12 +6,12 @@ public class JumpIcon : Icon
 {
     public override void Activation()
     {
-        throw new System.NotImplementedException();
+        base.Activation();
     }
 
     public override void Deactivation()
     {
-        throw new System.NotImplementedException();
+        base.Deactivation();
     }
 
     // Start is called before the first frame update
