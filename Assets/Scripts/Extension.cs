@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExtensionController : MonoBehaviour
+public class Extension : MonoBehaviour
 {
     [SerializeField] AnimatorController _animator;
     [SerializeField] Particle _Pfire;

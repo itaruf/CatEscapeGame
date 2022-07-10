@@ -106,7 +106,7 @@ public class Vase : MonoBehaviour, IPushable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out ExtensionController extension))
+        if (collision.gameObject.TryGetComponent(out Extension extension))
         {
             _animatorController.PlayAnimation("VaseDestroyed");
         }
