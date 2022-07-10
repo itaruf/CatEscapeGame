@@ -12,7 +12,6 @@ public class Particle : MonoBehaviour
     [SerializeField] SpriteRenderer _spriteRenderer;
     public bool _showParticle = false;
 
-    // Start is called before the first frame update
     void Awake()
     {
         if (!TryGetComponent(out _spriteRenderer))

@@ -9,8 +9,8 @@ public abstract class Icon : MonoBehaviour
     [SerializeField] GameObject _target;
     [SerializeField] Vector3 _offset;
 
-    Action _onActivation;
-    Action _onDeactivation;
+    public Action _onActivation;
+    public Action _onDeactivation;
 
     public RectTransform _rectTransform;
     public RawImage _rawImage;

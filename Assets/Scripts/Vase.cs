@@ -17,10 +17,8 @@ public class Vase : MonoBehaviour, IPushable
     [SerializeField] AnimatorController _animatorController;
 
     bool _activated = true;
-    Action _onDeactivation;
+    public Action _onDeactivation;
 
-
-    // Start is called before the first frame update
     void Awake()
     {
         if (!_animatorController)
@@ -30,11 +28,6 @@ public class Vase : MonoBehaviour, IPushable
         v.OnPush();*/
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        
-    }
 
     void IPushable.OnPush()
     {

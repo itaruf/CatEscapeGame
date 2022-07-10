@@ -64,7 +64,6 @@ public class PlayerController : MonoBehaviour
 
     public void JumpInput(InputAction.CallbackContext obj)
     {
-        Debug.Log("JUMP");
         _onJump?.Invoke();
     }
 

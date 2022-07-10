@@ -13,7 +13,6 @@ public class JumpPoint : MonoBehaviour
 
     public bool _activated = true;
 
-    // Start is called before the first frame update
     void Awake()
     {
         if (!_landingLoc)
