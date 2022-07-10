@@ -6,16 +6,26 @@ using UnityEngine;
 public class Vase : MonoBehaviour, IPushable
 {
     enum Direction { UP, BW, R, L};
+
+    [Header("Movemment")]
     [SerializeField] Direction _direction;
     [SerializeField] float _speed =  2;
     [SerializeField] float _pushDistance = 1;
 
+
+    [Header("Animator Controller")]
+    [SerializeField] AnimatorController _animatorController;
+
     bool _activated = true;
     Action _onDeactivation;
+
 
     // Start is called before the first frame update
     void Awake()
     {
+        if (!_animatorController)
+            TryGetComponent<AnimatorController>(out _animatorController);
+
        /* var v = this as IPushable;
         v.OnPush();*/
     }
@@ -57,7 +67,7 @@ public class Vase : MonoBehaviour, IPushable
         _onDeactivation?.Invoke();
         _activated = false;
 
-        while (Vector3.Distance(transform.position, e) > 0.05f)
+        while (Vector3.Distance(transform.position, e) > Mathf.Epsilon)
         {
             transform.position = Vector3.Lerp(s, e, (Time.time - timeToStart) * _speed);
             yield return null;
@@ -91,6 +101,14 @@ public class Vase : MonoBehaviour, IPushable
 
             var v = this as IPushable;
             PC._onPush -= v.OnPush;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out ExtensionController extension))
+        {
+            _animatorController.PlayAnimation("VaseDestroyed");
         }
     }
 }

@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2950991249146645747}
   - component: {fileID: 2950991249146645756}
+  - component: {fileID: 1123412158}
   - component: {fileID: 2950991249146645757}
+  - component: {fileID: 1123412163}
   - component: {fileID: 2950991249146645758}
   - component: {fileID: 2950991249146645759}
   m_Layer: 0
@@ -48,7 +50,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _direction: 2
   _speed: 2
-  _pushDistance: 1
+  _pushDistance: 2.25
+  _animatorController: {fileID: 1123412158}
+--- !u!114 &1123412158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2950991249146645752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d759f0c10fd0c0b4aa39031c40eaf4ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 1123412163}
+  _sprite: {fileID: 2950991249146645757}
 --- !u!212 &2950991249146645757
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -100,6 +117,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1123412163
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2950991249146645752}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9534812134854f045a596ebc788b99d6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!50 &2950991249146645758
 Rigidbody2D:
   serializedVersion: 4
@@ -108,7 +144,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2950991249146645752}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -119,7 +155,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 0
 --- !u!61 &2950991249146645759
 BoxCollider2D:
