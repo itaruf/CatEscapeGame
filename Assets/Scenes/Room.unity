@@ -1261,8 +1261,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2950991249146645756, guid: e1ecb4ff31da4604d87cb10c07bcf535, type: 3}
       propertyPath: _pushDistance
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2950991249146645757, guid: e1ecb4ff31da4604d87cb10c07bcf535, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5241894066058708657, guid: 62d3c664f12ae0a439b5d5ce1fbb7d43, type: 3}
     - target: {fileID: 2950991249146645757, guid: e1ecb4ff31da4604d87cb10c07bcf535, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -1655,6 +1659,10 @@ PrefabInstance:
       propertyPath: _extension
       value: 
       objectReference: {fileID: 1808923287}
+    - target: {fileID: 8186927627643628698, guid: 184e77bc085b7074c83e351b06487b66, type: 3}
+      propertyPath: _delayBeforeActivation
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 184e77bc085b7074c83e351b06487b66, type: 3}
 --- !u!1001 &7600078529114273817

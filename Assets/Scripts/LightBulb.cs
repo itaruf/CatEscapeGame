@@ -12,13 +12,14 @@ public class LightBulb : MonoBehaviour
 
     public bool _activated = true;
     public Action _onActivation;
+    public float _delayBeforeActivation = 2;
 
     void Awake()
     {
         if (!_extension)
             return;
 
-        _extension._onActivation += Burn;
+        _extension._onActivation += OnBurn;
     }
 
     private void OnDestroy()
@@ -26,24 +27,36 @@ public class LightBulb : MonoBehaviour
         if (!_extension)
             return;
 
-        _extension._onActivation -= Burn;
+        _extension._onActivation -= OnBurn;
     }
 
-    void Burn()
+    private void OnBurn()
+    {
+        StartCoroutine(Burn());
+    }
+
+    IEnumerator Burn()
     {
         if (!_activated)
-            return;
+            yield return null;
+
+        float timeToStart = Time.time;
+
+        while (Time.time - timeToStart < _delayBeforeActivation)
+        {
+            yield return null;
+        }
 
         _activated = false;
         _onActivation?.Invoke();
 
         if (!_animator)
-            return;
+            yield return null;
 
         _animator.TriggerAnimation("LightOff");
 
         if (!_Pfire)
-            return;
+            yield return null;
 
         _Pfire.Activation();
         _Pfire._animatorController.PlayAnimation("FireLoop", true);
