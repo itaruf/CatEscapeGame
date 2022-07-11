@@ -364,6 +364,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6183373950680355706, guid: 8fe267557e9efe64fa25a544a4978017, type: 3}
+      propertyPath: _nbOfHit
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6183373950680355706, guid: 8fe267557e9efe64fa25a544a4978017, type: 3}
       propertyPath: _activated
       value: 1
       objectReference: {fileID: 0}
@@ -1079,7 +1083,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6183373950680355706, guid: 8fe267557e9efe64fa25a544a4978017, type: 3}
       propertyPath: _nbOfHit
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6183373950680355706, guid: 8fe267557e9efe64fa25a544a4978017, type: 3}
       propertyPath: _activated
@@ -1087,7 +1091,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6183373950680355706, guid: 8fe267557e9efe64fa25a544a4978017, type: 3}
       propertyPath: _delayBeforeDestr
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6183373950680355707, guid: 8fe267557e9efe64fa25a544a4978017, type: 3}
       propertyPath: m_Controller

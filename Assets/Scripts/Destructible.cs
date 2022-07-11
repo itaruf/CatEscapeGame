@@ -32,12 +32,8 @@ public class Destructible : MonoBehaviour, IDestructible
         _activated = false;
 
         float timeToStart = Time.time;
-
         while (Time.time - timeToStart < _delayBeforeDestr)
-        {
             yield return null;
-        }
-
 
         if (_isTrigger)
             _animatorController.TriggerAnimation(_conditionName);
@@ -49,29 +45,33 @@ public class Destructible : MonoBehaviour, IDestructible
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!_activated)
-            return;
-
         if (collision.gameObject.TryGetComponent(out PlayerController PC))
         {
-            Debug.Log("here");
-            var destructible = this as IDestructible;
-            PC._onPush += IncrementCounterOfHit;
-            _onDestroyed += PC._scratchIcon.Deactivation;
+            if (!_activated)
+                PC._onPush -= IncrementCounterOfHit;
+
+            else
+            {
+                var destructible = this as IDestructible;
+                PC._onPush += IncrementCounterOfHit;
+                _onDestroyed += PC._scratchIcon.Deactivation;
+            }
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (!_activated)
-            return;
-
         if (collision.gameObject.TryGetComponent(out PlayerController PC))
         {
-            Debug.Log("here");
-            var destructible = this as IDestructible;
-            PC._onPush -= IncrementCounterOfHit;
-            _onDestroyed += PC._scratchIcon.Deactivation;
+            if (!_activated)
+                PC._onPush -= IncrementCounterOfHit;
+
+            else
+            {
+                var destructible = this as IDestructible;
+                PC._onPush -= IncrementCounterOfHit;
+                _onDestroyed += PC._scratchIcon.Deactivation;
+            }
         }
     }
 
