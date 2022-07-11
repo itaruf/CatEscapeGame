@@ -114,20 +114,33 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.TryGetComponent(out IDestructible destructible))
+        {
+            if (destructible.IsActivated())
+            {
+                _scratchIcon.Activation();
+            }
+        }
+
         if (collision.gameObject.TryGetComponent(out IPushable pushable))
         {
-            /*_push.action.started += PushInput;*/
-            /*_pushIcon.Activation();*/
-            /*pushable.OnPush();*/
+            if (pushable.IsActivated())
+            {
+                _scratchIcon.Activation();
+            }
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
+        if (collision.gameObject.TryGetComponent(out IDestructible destructible))
+        {
+            _scratchIcon.Deactivation();
+        }
+
         if (collision.gameObject.TryGetComponent(out IPushable pushable))
         {
-            /*_push.action.started -= PushInput;*/
-            /*_pushIcon.Deactivation();*/
+            _scratchIcon.Deactivation();
         }
     }
 }

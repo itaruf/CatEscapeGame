@@ -1,9 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IPushable
+public interface IDestructible
 {
-    public abstract void OnPush();
+    public void OnDestroyed();
     public bool IsActivated();
 }

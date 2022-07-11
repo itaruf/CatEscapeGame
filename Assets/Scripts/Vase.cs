@@ -51,6 +51,11 @@ public class Vase : MonoBehaviour, IPushable
         }
     }
 
+    bool IPushable.IsActivated()
+    {
+        return _activated;
+    }
+
     IEnumerator PushAnim(Vector3 start, Vector3 end)
     {
         float timeToStart = Time.time;

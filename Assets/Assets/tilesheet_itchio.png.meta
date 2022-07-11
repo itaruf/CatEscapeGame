@@ -56,6 +56,48 @@ TextureImporter:
   - first:
       213: 5241894066058708657
     second: tilesheet_itchio_17
+  - first:
+      213: 5068925523784954572
+    second: tilesheet_itchio_18
+  - first:
+      213: 3410698824756873485
+    second: tilesheet_itchio_19
+  - first:
+      213: -4332337898693800393
+    second: tilesheet_itchio_20
+  - first:
+      213: 7228523197453885892
+    second: tilesheet_itchio_21
+  - first:
+      213: 1577497726432635768
+    second: tilesheet_itchio_22
+  - first:
+      213: -9019988447532258182
+    second: tilesheet_itchio_23
+  - first:
+      213: 3051700194554269113
+    second: tilesheet_itchio_24
+  - first:
+      213: 1394134524727391508
+    second: tilesheet_itchio_25
+  - first:
+      213: -1088493081005395656
+    second: tilesheet_itchio_26
+  - first:
+      213: -4159694322413181212
+    second: tilesheet_itchio_27
+  - first:
+      213: 8844597700752824158
+    second: tilesheet_itchio_28
+  - first:
+      213: 3932346096597231480
+    second: tilesheet_itchio_29
+  - first:
+      213: 4985745498161601694
+    second: tilesheet_itchio_30
+  - first:
+      213: 4454473898492613398
+    second: tilesheet_itchio_31
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -160,7 +202,7 @@ TextureImporter:
       name: tilesheet_itchio_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 160
         y: 192
         width: 32
         height: 32
@@ -286,10 +328,10 @@ TextureImporter:
       name: tilesheet_itchio_6
       rect:
         serializedVersion: 2
-        x: 65
+        x: 64
         y: 128
-        width: 30
-        height: 31
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,10 +349,10 @@ TextureImporter:
       name: tilesheet_itchio_7
       rect:
         serializedVersion: 2
-        x: 196
+        x: 32
         y: 128
-        width: 27
-        height: 28
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -330,8 +372,8 @@ TextureImporter:
         serializedVersion: 2
         x: 224
         y: 128
-        width: 31
-        height: 26
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -433,10 +475,10 @@ TextureImporter:
       name: tilesheet_itchio_13
       rect:
         serializedVersion: 2
-        x: 2
-        y: 0
-        width: 28
-        height: 62
+        x: 96
+        y: 160
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -530,6 +572,279 @@ TextureImporter:
       bones: []
       spriteID: 1b648ad51e2feb840800000000000000
       internalID: 5241894066058708657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet_itchio_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc2fc1658e0785640800000000000000
+      internalID: 5068925523784954572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet_itchio_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d09c97da28c355f20800000000000000
+      internalID: 3410698824756873485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet_itchio_20
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73ec46582a170e3c0800000000000000
+      internalID: -4332337898693800393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet_itchio_21
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 160
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c1e8eabc8fd05460800000000000000
+      internalID: 7228523197453885892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet_itchio_22
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 96
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87be00203d564e510800000000000000
+      internalID: 1577497726432635768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet_itchio_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7c66b20c4092d280800000000000000
+      internalID: -9019988447532258182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet_itchio_24
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bdc5698821d95a20800000000000000
+      internalID: 3051700194554269113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet_itchio_25
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 415fb7bb6f5f85310800000000000000
+      internalID: 1394134524727391508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet_itchio_26
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 831f3365f45e4e0f0800000000000000
+      internalID: -1088493081005395656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet_itchio_28
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 192
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e57db968fb25eba70800000000000000
+      internalID: 8844597700752824158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet_itchio_29
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 877629db0ff729630800000000000000
+      internalID: 3932346096597231480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet_itchio_30
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9cdc6e6d1de03540800000000000000
+      internalID: 4985745498161601694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tilesheet_itchio_31
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 28
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 613d6ece86871dd30800000000000000
+      internalID: 4454473898492613398
       vertices: []
       indices: 
       edges: []
