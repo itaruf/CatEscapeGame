@@ -43,7 +43,7 @@ public class Destructible : MonoBehaviour, IDestructible
         _onDestroyed?.Invoke();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent(out PlayerController PC))
         {
@@ -59,7 +59,7 @@ public class Destructible : MonoBehaviour, IDestructible
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    public virtual void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent(out PlayerController PC))
         {
