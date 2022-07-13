@@ -481,11 +481,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6561886033936757231, guid: 557cc84c28bbb60499831ce88461b97c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.01
+      value: 4.96
       objectReference: {fileID: 0}
     - target: {fileID: 6561886033936757231, guid: 557cc84c28bbb60499831ce88461b97c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.72
+      value: 3.6499999
       objectReference: {fileID: 0}
     - target: {fileID: 6561886033936757231, guid: 557cc84c28bbb60499831ce88461b97c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1280,7 +1280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5315452655021834882, guid: 51ed1e4995766a84fab4516175704c11, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.64
+      value: 3.39
       objectReference: {fileID: 0}
     - target: {fileID: 5315452655021834882, guid: 51ed1e4995766a84fab4516175704c11, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1905,11 +1905,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6183373950680355709, guid: 8fe267557e9efe64fa25a544a4978017, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.02
+      value: 4.97
       objectReference: {fileID: 0}
     - target: {fileID: 6183373950680355709, guid: 8fe267557e9efe64fa25a544a4978017, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.34
+      value: 4.27
       objectReference: {fileID: 0}
     - target: {fileID: 6183373950680355709, guid: 8fe267557e9efe64fa25a544a4978017, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1963,15 +1963,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 51090882398288113, guid: 80a11c945bfbf43499530add3cf96281, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 51090882398288113, guid: 80a11c945bfbf43499530add3cf96281, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2
+      value: 3.7499998
       objectReference: {fileID: 0}
     - target: {fileID: 51090882398288113, guid: 80a11c945bfbf43499530add3cf96281, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.23
+      value: 4.16
       objectReference: {fileID: 0}
     - target: {fileID: 51090882398288113, guid: 80a11c945bfbf43499530add3cf96281, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2074,11 +2074,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3936878842318891235, guid: 7f4ffaa6058045b4384fa50d2b3e9a5e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.2
+      value: 3.7499998
       objectReference: {fileID: 0}
     - target: {fileID: 3936878842318891235, guid: 7f4ffaa6058045b4384fa50d2b3e9a5e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.12
+      value: 4.0499997
       objectReference: {fileID: 0}
     - target: {fileID: 3936878842318891235, guid: 7f4ffaa6058045b4384fa50d2b3e9a5e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2149,10 +2149,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1534217709}
   - {fileID: 878712012}
   - {fileID: 693112720}
   - {fileID: 1374640299}
-  - {fileID: 1534217709}
   - {fileID: 683542988}
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -5361,6 +5361,14 @@ PrefabInstance:
     - target: {fileID: 2890097839660848851, guid: 184e77bc085b7074c83e351b06487b66, type: 3}
       propertyPath: m_Name
       value: LightBulb
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890097839660848855, guid: 184e77bc085b7074c83e351b06487b66, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 3679902191577724157, guid: 1ddde0c9f53ba9d4e938aa7c42eaa2c1, type: 3}
+    - target: {fileID: 7045059751878213062, guid: 184e77bc085b7074c83e351b06487b66, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.97
       objectReference: {fileID: 0}
     - target: {fileID: 8186927627643628698, guid: 184e77bc085b7074c83e351b06487b66, type: 3}
       propertyPath: _extension
