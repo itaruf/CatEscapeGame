@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
         _sleep.action.started += SleepInput;
 
         // Subscriptions
-        _onSleep += () => { Params("Idle", "Walk"); };
+        /*_onSleep += () => { Params("Idle", "Walk"); };*/
     }
 
     private void OnDestroy()
@@ -87,12 +87,11 @@ public class PlayerController : MonoBehaviour
 
     public void Params(params string[] list)
     {
-        Debug.Log("HERE");
+       /* Debug.Log("HERE");*/
         foreach (string name in list)
         {
-            Debug.Log(name);
-            _animatorController.PlayAnimation(name, false);
-            _animatorController.TriggerAnimation(name, false);
+            /*Debug.Log(name);*/
+            /*_animatorController.TriggerAnimation(name, false);*/
         }
     }
 
@@ -141,8 +140,8 @@ public class PlayerController : MonoBehaviour
         {
             while (true)
             {
-                _animatorController.PlayAnimation("Walk");
-                _animatorController.PlayAnimation("Idle", false);
+                Debug.Log("MOVING");
+                _animatorController.TriggerAnimation("Walk");
 
                 PrepareDirection(obj.ReadValue<Vector2>());
                 _animatorController.FlipSprite(obj.ReadValue<Vector2>());
@@ -157,13 +156,13 @@ public class PlayerController : MonoBehaviour
         if (MovementTracking == null) 
             return;
 
-        _animatorController.PlayAnimation("Walk", false);
-        _animatorController.PlayAnimation("Idle", true);
-
-        PrepareDirection(Vector2.zero);
-
         StopCoroutine(MovementTracking);
         MovementTracking = null;
+        PrepareDirection(Vector2.zero);
+
+        Debug.Log("STOP MOVING");
+        _animatorController.TriggerAnimation("Walk", false);
+        _animatorController.TriggerAnimation("Idle");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
