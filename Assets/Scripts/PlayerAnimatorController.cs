@@ -19,9 +19,14 @@ public class PlayerAnimatorController : AnimatorController
         _animator.SetBool(name, value);
     }
 
-    public override void TriggerAnimation(string name)
-    { 
-        _animator.SetTrigger(name);
+    public override void TriggerAnimation(string name, bool value = true)
+    {
+        if (!value)
+            _animator.ResetTrigger(name);
+        else
+        {
+            _animator.SetTrigger(name);
+        }
     }
 
     public override bool IsAnimPlaying(string name)

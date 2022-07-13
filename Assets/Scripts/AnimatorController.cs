@@ -29,12 +29,17 @@ public class AnimatorController : MonoBehaviour
         _animator.SetBool(name, value);
     }
 
-    public virtual void TriggerAnimation(string name)
+    public virtual void TriggerAnimation(string name, bool value = true)
     {
         /*if (!_animations.ContainsKey(name))
             return;*/
 
-        _animator.SetTrigger(name);
+        if (!value)
+            _animator.ResetTrigger(name);
+        else
+        {
+            _animator.SetTrigger(name);
+        }
     }
 
     public virtual bool IsAnimPlaying(string name)

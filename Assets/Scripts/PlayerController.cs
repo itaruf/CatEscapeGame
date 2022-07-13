@@ -36,6 +36,12 @@ public class PlayerController : MonoBehaviour
     // Events
     public Action _onJump;
     public Action _onPush;
+    public Action _onScratch;
+    public Action _onBite;
+    public Action _onSleep;
+
+    delegate void Delegate();
+    Delegate _onS;
 
     void Start()
     {
@@ -58,6 +64,9 @@ public class PlayerController : MonoBehaviour
 
         // Sleep
         _sleep.action.started += SleepInput;
+
+        // Subscriptions
+        _onSleep += () => { Params("Idle", "Walk"); };
     }
 
     private void OnDestroy()
@@ -65,7 +74,7 @@ public class PlayerController : MonoBehaviour
         _move.action.started -= MoveInput;
         _move.action.canceled -= MoveCanceled;
 
-       /* _jump.action.started -= JumpInput;
+        /*_jump.action.started -= JumpInput;
         _jump.action.started -= MoveCanceled;*/
 
         _scratch.action.started -= ScratchInput;
@@ -76,11 +85,20 @@ public class PlayerController : MonoBehaviour
         _rb.MovePosition(_rb.position + (Direction * _speed) * Time.fixedDeltaTime);
     }
 
+    public void Params(params string[] list)
+    {
+        Debug.Log("HERE");
+        foreach (string name in list)
+        {
+            Debug.Log(name);
+            _animatorController.PlayAnimation(name, false);
+            _animatorController.TriggerAnimation(name, false);
+        }
+    }
 
     private void SleepInput(InputAction.CallbackContext obj)
     {
-        Debug.Log("SLEEP");
-        _animatorController.PlayAnimation("Idle", false);
+        _onSleep?.Invoke();
         _animatorController.TriggerAnimation("Sleep");
     }
 
