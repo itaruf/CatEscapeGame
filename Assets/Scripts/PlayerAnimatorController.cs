@@ -16,25 +16,16 @@ public class PlayerAnimatorController : AnimatorController
 
     public override void PlayAnimation(string name, bool value = true)
     {
-        if (!_animations.ContainsKey(name))
-            return;
-
-        _animator.SetBool(_animations[name], value);
+        _animator.SetBool(name, value);
     }
 
     public override void TriggerAnimation(string name)
-    {
-        if (!_animations.ContainsKey(name))
-            return;
-
-        _animator.SetTrigger(_animations[name]);
+    { 
+        _animator.SetTrigger(name);
     }
 
     public override bool IsAnimPlaying(string name)
     {
-        if (!_animations.ContainsKey(name))
-            return false;
-
         return (_animator.GetCurrentAnimatorStateInfo(0).IsName(name));
     }
     public override void FlipSprite(Vector2 _direction)

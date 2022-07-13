@@ -49,6 +49,22 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Bite"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""c117356a-9dff-4984-a1b5-65cc5da71d0d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Sleep"",
+                    ""type"": ""Button"",
+                    ""id"": ""70b44b0b-cb5f-477b-9738-7b08730a4196"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -205,6 +221,28 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                     ""action"": ""Push"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0ff39804-6a6c-42d0-8888-43f7df22420c"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Bite"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b995306b-6d41-4bcf-be9d-0d374b35595a"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sleep"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -217,6 +255,8 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         m_Inputs_Scratch = m_Inputs.FindAction("Scratch", throwIfNotFound: true);
         m_Inputs_Push = m_Inputs.FindAction("Push", throwIfNotFound: true);
         m_Inputs_Jump = m_Inputs.FindAction("Jump", throwIfNotFound: true);
+        m_Inputs_Bite = m_Inputs.FindAction("Bite", throwIfNotFound: true);
+        m_Inputs_Sleep = m_Inputs.FindAction("Sleep", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -270,6 +310,8 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
     private readonly InputAction m_Inputs_Scratch;
     private readonly InputAction m_Inputs_Push;
     private readonly InputAction m_Inputs_Jump;
+    private readonly InputAction m_Inputs_Bite;
+    private readonly InputAction m_Inputs_Sleep;
     public struct InputsActions
     {
         private @PlayerInputs m_Wrapper;
@@ -278,6 +320,8 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         public InputAction @Scratch => m_Wrapper.m_Inputs_Scratch;
         public InputAction @Push => m_Wrapper.m_Inputs_Push;
         public InputAction @Jump => m_Wrapper.m_Inputs_Jump;
+        public InputAction @Bite => m_Wrapper.m_Inputs_Bite;
+        public InputAction @Sleep => m_Wrapper.m_Inputs_Sleep;
         public InputActionMap Get() { return m_Wrapper.m_Inputs; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -299,6 +343,12 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_InputsActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_InputsActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_InputsActionsCallbackInterface.OnJump;
+                @Bite.started -= m_Wrapper.m_InputsActionsCallbackInterface.OnBite;
+                @Bite.performed -= m_Wrapper.m_InputsActionsCallbackInterface.OnBite;
+                @Bite.canceled -= m_Wrapper.m_InputsActionsCallbackInterface.OnBite;
+                @Sleep.started -= m_Wrapper.m_InputsActionsCallbackInterface.OnSleep;
+                @Sleep.performed -= m_Wrapper.m_InputsActionsCallbackInterface.OnSleep;
+                @Sleep.canceled -= m_Wrapper.m_InputsActionsCallbackInterface.OnSleep;
             }
             m_Wrapper.m_InputsActionsCallbackInterface = instance;
             if (instance != null)
@@ -315,6 +365,12 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Bite.started += instance.OnBite;
+                @Bite.performed += instance.OnBite;
+                @Bite.canceled += instance.OnBite;
+                @Sleep.started += instance.OnSleep;
+                @Sleep.performed += instance.OnSleep;
+                @Sleep.canceled += instance.OnSleep;
             }
         }
     }
@@ -325,5 +381,7 @@ public class @PlayerInputs : IInputActionCollection, IDisposable
         void OnScratch(InputAction.CallbackContext context);
         void OnPush(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnBite(InputAction.CallbackContext context);
+        void OnSleep(InputAction.CallbackContext context);
     }
 }

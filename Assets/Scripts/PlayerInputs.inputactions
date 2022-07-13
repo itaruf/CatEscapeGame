@@ -36,6 +36,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Bite",
+                    "type": "PassThrough",
+                    "id": "c117356a-9dff-4984-a1b5-65cc5da71d0d",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Sleep",
+                    "type": "Button",
+                    "id": "70b44b0b-cb5f-477b-9738-7b08730a4196",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -190,6 +206,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Push",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0ff39804-6a6c-42d0-8888-43f7df22420c",
+                    "path": "<Keyboard>/t",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Bite",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b995306b-6d41-4bcf-be9d-0d374b35595a",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sleep",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

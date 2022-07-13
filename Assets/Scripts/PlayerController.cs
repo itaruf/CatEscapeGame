@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public InputActionReference _scratch;
     public InputActionReference _push;
     public InputActionReference _jump;
+    public InputActionReference _bite;
+    public InputActionReference _sleep;
 
     public void PrepareDirection(Vector2 v) => Direction = v.normalized;
     Coroutine MovementTracking { get; set; }
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public Icon _jumpIcon = null;
     public Icon _scratchIcon = null;
     public Icon _pushIcon = null;
+    public Icon _biteIcon = null;
 
     [Header("Animator Controller")]
     // Animator
@@ -49,6 +52,12 @@ public class PlayerController : MonoBehaviour
 
         // Push
         _push.action.started += PushInput;
+
+        // Bite
+        _bite.action.performed += BiteInput;
+
+        // Sleep
+        _sleep.action.started += SleepInput;
     }
 
     private void OnDestroy()
@@ -62,14 +71,35 @@ public class PlayerController : MonoBehaviour
         _scratch.action.started -= ScratchInput;
     }
 
+    void FixedUpdate()
+    {
+        _rb.MovePosition(_rb.position + (Direction * _speed) * Time.fixedDeltaTime);
+    }
+
+
+    private void SleepInput(InputAction.CallbackContext obj)
+    {
+        Debug.Log("SLEEP");
+        _animatorController.PlayAnimation("Idle", false);
+        _animatorController.TriggerAnimation("Sleep");
+    }
+
     public void JumpInput(InputAction.CallbackContext obj)
     {
         _onJump?.Invoke();
     }
 
-    void FixedUpdate()
+    public void BiteInput(InputAction.CallbackContext obj)
     {
-        _rb.MovePosition(_rb.position + (Direction * _speed) * Time.fixedDeltaTime);
+        if (obj.performed) 
+        {
+            Debug.Log("Bite");
+        }
+
+        if (obj.canceled)
+        {
+            Debug.Log("Bite canceled");
+        }
     }
 
     private void ScratchInput(InputAction.CallbackContext obj)
@@ -93,6 +123,9 @@ public class PlayerController : MonoBehaviour
         {
             while (true)
             {
+                _animatorController.PlayAnimation("Walk");
+                _animatorController.PlayAnimation("Idle", false);
+
                 PrepareDirection(obj.ReadValue<Vector2>());
                 _animatorController.FlipSprite(obj.ReadValue<Vector2>());
 
@@ -105,6 +138,9 @@ public class PlayerController : MonoBehaviour
     {
         if (MovementTracking == null) 
             return;
+
+        _animatorController.PlayAnimation("Walk", false);
+        _animatorController.PlayAnimation("Idle", true);
 
         PrepareDirection(Vector2.zero);
 

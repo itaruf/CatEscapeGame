@@ -15,7 +15,8 @@ public class Destructible : MonoBehaviour, IDestructible
     [SerializeField] float _delayBeforeDestr = 0;
 
     // Events
-    Action _onDestroyed;
+    public  Action _onDestroyed;
+    public Action _onActivation;
 
     public bool _activated = true;
 
@@ -41,6 +42,7 @@ public class Destructible : MonoBehaviour, IDestructible
             _animatorController.PlayAnimation(_conditionName);
 
         _onDestroyed?.Invoke();
+        _onActivation?.Invoke();
     }
 
     public virtual void OnCollisionEnter2D(Collision2D collision)
@@ -80,7 +82,7 @@ public class Destructible : MonoBehaviour, IDestructible
         return _activated;
     }
 
-    void IncrementCounterOfHit()
+    public void IncrementCounterOfHit()
     {
         if (!_activated)
             return;
