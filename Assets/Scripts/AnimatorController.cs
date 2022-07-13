@@ -23,24 +23,24 @@ public class AnimatorController : MonoBehaviour
 
     public virtual void PlayAnimation(string name, bool value = true)
     {
-        if (!_animations.ContainsKey(name))
-            return;
+        /*if (!_animations.ContainsKey(name))
+            return;*/
 
-        _animator.SetBool(_animations[name], value);
+        _animator.SetBool(name, value);
     }
 
     public virtual void TriggerAnimation(string name)
     {
-        if (!_animations.ContainsKey(name))
-            return;
+        /*if (!_animations.ContainsKey(name))
+            return;*/
 
-        _animator.SetTrigger(_animations[name]);
+        _animator.SetTrigger(name);
     }
 
     public virtual bool IsAnimPlaying(string name)
     {
-        if (!_animations.ContainsKey(name))
-            return false;
+        /*if (!_animations.ContainsKey(name))
+            return false;*/
 
         return (_animator.GetCurrentAnimatorStateInfo(0).IsName(name));
     }

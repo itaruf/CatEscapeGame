@@ -1,28 +1,43 @@
 fileFormatVersion: 2
-guid: 1ddde0c9f53ba9d4e938aa7c42eaa2c1
+guid: 13dff3116d9b9e945ba5cfe75598e712
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3259736067678153316
-    second: lightbulb-tilesheet_0
+      213: -7470858814025963096
+    second: rope-tilesheet_0
   - first:
-      213: 5801190594195401476
-    second: lightbulb-tilesheet_1
+      213: -2832689673804583367
+    second: rope-tilesheet_1
   - first:
-      213: -1043106291852837650
-    second: lightbulb-tilesheet_2
+      213: 4423230220576288156
+    second: rope-tilesheet_2
   - first:
-      213: 3679902191577724157
-    second: lightbulb-tilesheet_3
+      213: -926433250179416525
+    second: rope-tilesheet_3
   - first:
-      213: -8515189706231767226
-    second: lightbulb-tilesheet_4
+      213: -1921482431328066970
+    second: rope-tilesheet_4
   - first:
-      213: 8989385498360669028
-    second: lightbulb-tilesheet_5
+      213: 5534775424182525692
+    second: rope-tilesheet_5
   - first:
-      213: -4002389078599562348
-    second: lightbulb-tilesheet_6
+      213: -8476471893153206099
+    second: rope-tilesheet_6
+  - first:
+      213: 6889214310437573047
+    second: rope-tilesheet_7
+  - first:
+      213: 9124809657105829777
+    second: rope-tilesheet_8
+  - first:
+      213: 6806235292489174730
+    second: rope-tilesheet_9
+  - first:
+      213: 8481986232833481074
+    second: rope-tilesheet_10
+  - first:
+      213: -107363556499050353
+    second: rope-tilesheet_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -124,49 +139,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: lightbulb-tilesheet_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 48
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c95d388315713c2d0800000000000000
-      internalID: -3259736067678153316
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightbulb-tilesheet_1
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 48
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40baa510c18f18050800000000000000
-      internalID: 5801190594195401476
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: lightbulb-tilesheet_2
+      name: rope-tilesheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -180,14 +153,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eecf22baa542681f0800000000000000
-      internalID: -1043106291852837650
+      spriteID: 8a9e2eead7d225890800000000000000
+      internalID: -7470858814025963096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightbulb-tilesheet_3
+      name: rope-tilesheet_1
       rect:
         serializedVersion: 2
         x: 48
@@ -201,14 +174,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df4fb29db83a11330800000000000000
-      internalID: 3679902191577724157
+      spriteID: 93ee5f9ffb340b8d0800000000000000
+      internalID: -2832689673804583367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightbulb-tilesheet_4
+      name: rope-tilesheet_2
       rect:
         serializedVersion: 2
         x: 96
@@ -222,14 +195,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64f1efcd318f3d980800000000000000
-      internalID: -8515189706231767226
+      spriteID: c9de8394378726d30800000000000000
+      internalID: 4423230220576288156
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightbulb-tilesheet_5
+      name: rope-tilesheet_3
       rect:
         serializedVersion: 2
         x: 144
@@ -243,14 +216,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 463e5d2ab76b0cc70800000000000000
-      internalID: 8989385498360669028
+      spriteID: 33ef1fe0ed5a423f0800000000000000
+      internalID: -926433250179416525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: lightbulb-tilesheet_6
+      name: rope-tilesheet_4
       rect:
         serializedVersion: 2
         x: 192
@@ -264,8 +237,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49b8b2da658a478c0800000000000000
-      internalID: -4002389078599562348
+      spriteID: 662698eb8e58555e0800000000000000
+      internalID: -1921482431328066970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rope-tilesheet_5
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfe16fd7ce87fcc40800000000000000
+      internalID: 5534775424182525692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rope-tilesheet_6
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da0350439b58d5a80800000000000000
+      internalID: -8476471893153206099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rope-tilesheet_7
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b15b2b2ae76b9f50800000000000000
+      internalID: 6889214310437573047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rope-tilesheet_8
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19fc8dea906d1ae70800000000000000
+      internalID: 9124809657105829777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rope-tilesheet_9
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ace4b8200fa947e50800000000000000
+      internalID: 6806235292489174730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rope-tilesheet_10
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2791bcd0a8116b570800000000000000
+      internalID: 8481986232833481074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: rope-tilesheet_11
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 0
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f803d090a61928ef0800000000000000
+      internalID: -107363556499050353
       vertices: []
       indices: 
       edges: []
