@@ -22,7 +22,7 @@ public class Rope : MonoBehaviour
     void Awake()
     {
         _fan._onActivation += OnWindDetected;
-        startLoc = transform.position;
+        startLoc = _collider.transform.localPosition;
     }
 
     void FixedUpdate()
@@ -46,7 +46,7 @@ public class Rope : MonoBehaviour
         _animator.TriggerAnimation("RopeMove");
         _onActivation?.Invoke();
 
-        var start = transform.position;
+        var start = _collider.transform.localPosition;
         var end = startLoc + _offset;
 
         StartCoroutine(M(start, end));
@@ -56,14 +56,20 @@ public class Rope : MonoBehaviour
     {
         float timeToStart = Time.time;
 
-        while (Vector3.Distance(transform.position, end) > Mathf.Epsilon)
+        while (Vector3.Distance(_collider.transform.localPosition, end) > Mathf.Epsilon)
         {
 
-            transform.position = Vector3.Lerp(start, end, (Time.time - timeToStart) * _speed);
+            _collider.transform.localPosition = Vector3.Lerp(start, end, (Time.time - timeToStart) * _speed);
             yield return null;
         }
 
         _offset = new Vector3(-_offset.x, _offset.y, _offset.z);
         StartCoroutine(Move());
+    }
+
+    private void OnDrawGizmos()
+    {
+        /*Gizmos.color = Color.yellow;
+        Gizmos.DrawCube(_collider.transform.localPosition, _collider.size);*/
     }
 }

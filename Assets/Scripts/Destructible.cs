@@ -50,12 +50,12 @@ public class Destructible : MonoBehaviour, IDestructible
         if (collision.gameObject.TryGetComponent(out PlayerController PC))
         {
             if (!_activated)
-                PC._onPush -= IncrementCounterOfHit;
+                PC._onScratch -= IncrementCounterOfHit;
 
             else
             {
                 var destructible = this as IDestructible;
-                PC._onPush += IncrementCounterOfHit;
+                PC._onScratch += IncrementCounterOfHit;
                 _onDestroyed += PC._scratchIcon.Deactivation;
             }
         }
@@ -66,12 +66,12 @@ public class Destructible : MonoBehaviour, IDestructible
         if (collision.gameObject.TryGetComponent(out PlayerController PC))
         {
             if (!_activated)
-                PC._onPush -= IncrementCounterOfHit;
+                PC._onScratch -= IncrementCounterOfHit;
 
             else
             {
                 var destructible = this as IDestructible;
-                PC._onPush -= IncrementCounterOfHit;
+                PC._onScratch -= IncrementCounterOfHit;
                 _onDestroyed += PC._scratchIcon.Deactivation;
             }
         }

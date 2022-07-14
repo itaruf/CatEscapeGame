@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Animator Controller")]
     // Animator
-    [SerializeField] PlayerAnimatorController _animatorController;
+    [SerializeField] public PlayerAnimatorController _animatorController;
 
     // Events
     public Action _onJump;
@@ -42,6 +42,9 @@ public class PlayerController : MonoBehaviour
 
     delegate void Delegate();
     Delegate _onS;
+
+    // bool
+    public bool _isJumping = false;
 
     void Start()
     {
@@ -97,17 +100,27 @@ public class PlayerController : MonoBehaviour
 
     private void SleepInput(InputAction.CallbackContext obj)
     {
+        if (_isJumping)
+            return;
+
         _onSleep?.Invoke();
         _animatorController.TriggerAnimation("Sleep");
     }
 
     public void JumpInput(InputAction.CallbackContext obj)
     {
+        if (_isJumping)
+            return;
+
+        _animatorController.TriggerAnimation("Jump");
         _onJump?.Invoke();
     }
 
     public void BiteInput(InputAction.CallbackContext obj)
     {
+        if (_isJumping)
+            return;
+
         if (obj.performed) 
         {
             Debug.Log("Bite");
@@ -121,17 +134,27 @@ public class PlayerController : MonoBehaviour
 
     private void ScratchInput(InputAction.CallbackContext obj)
     {
+        if (_isJumping)
+            return;
+
         _animatorController.TriggerAnimation("Scratch");
+        _onScratch?.Invoke();
     }
 
     private void PushInput(InputAction.CallbackContext obj)
     {
+        if (_isJumping)
+            return;
+
         _animatorController.TriggerAnimation("Push");
         _onPush?.Invoke();
     }
 
     private void MoveInput(InputAction.CallbackContext obj)
     {
+        if (_isJumping)
+            return;
+
         if (MovementTracking != null) 
             return;
 
@@ -140,6 +163,9 @@ public class PlayerController : MonoBehaviour
         {
             while (true)
             {
+                /*while (_isJumping)
+                    yield return null;*/
+
                 _animatorController.TriggerAnimation("Walk");
 
                 PrepareDirection(obj.ReadValue<Vector2>());
@@ -152,6 +178,9 @@ public class PlayerController : MonoBehaviour
 
     public void MoveCanceled(InputAction.CallbackContext obj)
     {
+        if (_isJumping)
+            return;
+
         if (MovementTracking == null) 
             return;
 
@@ -193,5 +222,10 @@ public class PlayerController : MonoBehaviour
         {
             _scratchIcon.Deactivation();
         }
+    }
+
+    public void SetIsJumping(bool value)
+    {
+        _isJumping = value;
     }
 }

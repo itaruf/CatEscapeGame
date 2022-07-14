@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,15 @@ public class JumpPoint : MonoBehaviour
     private GameObject _startLoc;
     [SerializeField] GameObject _landingLoc;
 
-    [SerializeField] AnimationCurve _jumpCurve;
     [SerializeField] float _speed;
 
     public bool _activated = true;
+
+    //Events
+    public Action _onAnimStart;
+    public Action _onAnimEnd;
+
+    Coroutine _jumpAnimTracking;
 
     void Awake()
     {
@@ -29,7 +35,7 @@ public class JumpPoint : MonoBehaviour
 
         PC._jump.action.started += PC.JumpInput;
         PC._jump.action.started += PC.MoveCanceled;
-        PC._jump.action.started += JumpInput;
+        PC._onJump += JumpInput;
 
         _startLoc = collision.gameObject;
 
@@ -44,32 +50,42 @@ public class JumpPoint : MonoBehaviour
         if (!collision.gameObject.TryGetComponent(out PlayerController PC))
             return;
 
-        /*StopCoroutine(JumpAnim(_startLoc, _landingLoc));*/
-
         PC._jump.action.started -= PC.JumpInput;
         PC._jump.action.started -= PC.MoveCanceled;
-        PC._jump.action.started -= JumpInput;
+        PC._onJump -= JumpInput;
 
         PC._jumpIcon.Deactivation();
     }
 
-    public void JumpInput(InputAction.CallbackContext obj)
+    public void JumpInput()
     {
-        StartCoroutine(JumpAnim(_startLoc, _landingLoc));
+        if (_jumpAnimTracking != null)
+            return;
+
+        _jumpAnimTracking = StartCoroutine(JumpAnim(_startLoc, _landingLoc));
     }
 
     IEnumerator JumpAnim(GameObject start, GameObject end)
     {
+        if (start.TryGetComponent(out PlayerController PC))
+            PC._isJumping = true;
+
+        _onAnimStart?.Invoke();
+
         float timeToStart = Time.time;
         var s = start.transform.position;
         var e = end.transform.position;
 
-        while (Vector3.Distance(start.transform.position, e) > 0.05f)
+        while (Vector3.Distance(start.transform.position, e) > Mathf.Epsilon)
         {
-            start.transform.position = Vector3.Lerp(s, e /*+ new Vector3(0, _jumpCurve.Evaluate(Time.time - timeToStart), 0)*/, (Time.time - timeToStart) * _speed);
-
+            start.transform.position = Vector3.Lerp(s, e, (Time.time - timeToStart) * _speed);
             yield return null;
-
         }
+
+        if (PC)
+            PC._isJumping = false;
+
+        _jumpAnimTracking = null;
+        _onAnimEnd?.Invoke();
     }
 }
