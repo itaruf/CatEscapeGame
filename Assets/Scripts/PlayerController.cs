@@ -140,7 +140,6 @@ public class PlayerController : MonoBehaviour
         {
             while (true)
             {
-                Debug.Log("MOVING");
                 _animatorController.TriggerAnimation("Walk");
 
                 PrepareDirection(obj.ReadValue<Vector2>());
@@ -160,7 +159,6 @@ public class PlayerController : MonoBehaviour
         MovementTracking = null;
         PrepareDirection(Vector2.zero);
 
-        Debug.Log("STOP MOVING");
         _animatorController.TriggerAnimation("Walk", false);
         _animatorController.TriggerAnimation("Idle");
     }
