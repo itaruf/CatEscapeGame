@@ -6,14 +6,14 @@ public class AnimatorController : MonoBehaviour
 {
     [SerializeField] protected Animator _animator;
     [SerializeField] protected SpriteRenderer _sprite;
-    public Dictionary<string, int> _animations = new Dictionary<string, int>();
+    public Dictionary<int, string> _animations = new Dictionary<int, string>();
 
-    protected void Start()
+    protected void Awake()
     {
         foreach (var anim in _animator.runtimeAnimatorController.animationClips)
         {
             /*Debug.Log(anim.name);*/
-            _animations.Add(anim.name, Animator.StringToHash(anim.name));
+            _animations.Add(Animator.StringToHash(anim.name), anim.name);
         }
     }
 
@@ -33,12 +33,24 @@ public class AnimatorController : MonoBehaviour
     {
         /*if (!_animations.ContainsKey(name))
             return;*/
-
         if (!value)
             _animator.ResetTrigger(name);
         else
         {
             _animator.SetTrigger(name);
+        }
+    }
+
+    public virtual void TriggerAnimation(int name, bool value = true)
+    {
+        /*if (!_animations.ContainsKey(name))
+            return;*/
+        if (!value)
+            _animator.ResetTrigger(name);
+        else
+        {
+            Debug.Log(name);
+            _animator.SetTrigger(_animations[name]);
         }
     }
 

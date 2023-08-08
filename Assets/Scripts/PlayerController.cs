@@ -93,8 +93,8 @@ public class PlayerController : MonoBehaviour
        /* Debug.Log("HERE");*/
         foreach (string name in list)
         {
-            /*Debug.Log(name);*/
-            /*_animatorController.TriggerAnimation(name, false);*/
+            Debug.Log(name);
+            _animatorController.TriggerAnimation(name, false);
         }
     }
 

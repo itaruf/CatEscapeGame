@@ -36,12 +36,13 @@ public class Fan : Destructible
     public override void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent(out PlayerController PC))
+        {
             if (_activated)
             {
                 var destructible = this as IDestructible;
                 PC._onPush -= destructible.OnDestroyed;
                 _onDestroyed += PC._scratchIcon.Deactivation;
             }
+        }
     }
-    
 }

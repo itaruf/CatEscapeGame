@@ -3,7 +3,7 @@ guid: 6fae7fa817e5bcf42aa7044c2b884dd9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -24,6 +24,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -62,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -89,6 +91,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1099,6 +1125,54 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Ub2YZ0_18: -6658100666274852193
+      Ub2YZ0_27: 1270585506375526913
+      Ub2YZ0_10: 4378443689338330794
+      Ub2YZ0_39: -8893227207750776039
+      Ub2YZ0_35: 4826500364604009448
+      Ub2YZ0_7: 1559874686648662969
+      Ub2YZ0_45: 4731883826255609809
+      Ub2YZ0_11: -6087257957046290288
+      Ub2YZ0_38: 4169894660719726619
+      Ub2YZ0_34: -3403100852113001111
+      Ub2YZ0_14: 8666971146040034980
+      Ub2YZ0_32: 4168290109858052523
+      Ub2YZ0_21: 63769450931940311
+      Ub2YZ0_33: 2529626135443311281
+      Ub2YZ0_40: -676625773768347914
+      Ub2YZ0_12: -1001998194640021935
+      Ub2YZ0_37: -8802948110206770205
+      Ub2YZ0_2: 8804942831502967700
+      Ub2YZ0_16: 2797704051419809811
+      Ub2YZ0_42: -5795866332324965781
+      Ub2YZ0_13: -2416246438829961514
+      Ub2YZ0_51: -5036219378761416573
+      Ub2YZ0_23: -183215385704828629
+      Ub2YZ0_36: 9144887451411901717
+      Ub2YZ0_43: 4485804547361150027
+      Ub2YZ0_29: -2053654647571735725
+      Ub2YZ0_31: 2860439377321061729
+      Ub2YZ0_24: 7800434673200357926
+      Ub2YZ0_26: 8742140606493073582
+      Ub2YZ0_41: -5274770570006905459
+      Ub2YZ0_22: -4510418275004775949
+      Ub2YZ0_17: -1101437870377368120
+      Ub2YZ0_9: -2447802191139729219
+      Ub2YZ0_50: -1043409151047495627
+      Ub2YZ0_25: 8454881392120141742
+      Ub2YZ0_28: 5052425899461108588
+      Ub2YZ0_1: -8468210148980381819
+      Ub2YZ0_20: -1324911242094009199
+      Ub2YZ0_19: 1390796840578654586
+      Ub2YZ0_6: -2024761362794976060
+      Ub2YZ0_8: -4932369916045294951
+      Ub2YZ0_0: -1052685503317069028
+      Ub2YZ0_3: -8253042277484822462
+      Ub2YZ0_30: 9146987107361949496
+      Ub2YZ0_4: -1167475596966293253
+      Ub2YZ0_15: 1499598045099841802
+      Ub2YZ0_5: -3188719067055129102
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

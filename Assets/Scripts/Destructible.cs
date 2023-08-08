@@ -37,7 +37,10 @@ public class Destructible : MonoBehaviour, IDestructible
             yield return null;
 
         if (_isTrigger)
-            _animatorController.TriggerAnimation(_conditionName);
+        {
+            Debug.Log(Animator.StringToHash(_conditionName));
+            _animatorController.TriggerAnimation(Animator.StringToHash(_conditionName));
+        }
         else
             _animatorController.PlayAnimation(_conditionName);
 
@@ -47,7 +50,7 @@ public class Destructible : MonoBehaviour, IDestructible
 
     public virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out PlayerController PC))
+        /*if (collision.gameObject.TryGetComponent(out PlayerController PC))
         {
             if (!_activated)
                 PC._onScratch -= IncrementCounterOfHit;
@@ -58,20 +61,44 @@ public class Destructible : MonoBehaviour, IDestructible
                 PC._onScratch += IncrementCounterOfHit;
                 _onDestroyed += PC._scratchIcon.Deactivation;
             }
+        }*/
+        if (collision.gameObject.TryGetComponent(out PlayerController PC))
+        {
+            var destructible = this as IDestructible;
+
+            if (!_activated)
+                PC._onPush -= destructible.OnDestroyed;
+
+            else
+            {
+                PC._onPush += destructible.OnDestroyed;
+                _onDestroyed += PC._scratchIcon.Deactivation;
+
+            }
         }
     }
 
     public virtual void OnCollisionExit2D(Collision2D collision)
     {
+        /* if (collision.gameObject.TryGetComponent(out PlayerController PC))
+         {
+             if (!_activated)
+                 PC._onScratch -= IncrementCounterOfHit;
+
+             else
+             {
+                 var destructible = this as IDestructible;
+                 PC._onScratch -= IncrementCounterOfHit;
+                 _onDestroyed += PC._scratchIcon.Deactivation;
+             }
+         }*/
+
         if (collision.gameObject.TryGetComponent(out PlayerController PC))
         {
-            if (!_activated)
-                PC._onScratch -= IncrementCounterOfHit;
-
-            else
+            if (_activated)
             {
                 var destructible = this as IDestructible;
-                PC._onScratch -= IncrementCounterOfHit;
+                PC._onPush -= destructible.OnDestroyed;
                 _onDestroyed += PC._scratchIcon.Deactivation;
             }
         }

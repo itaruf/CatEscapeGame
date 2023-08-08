@@ -5,9 +5,9 @@ using UnityEngine;
 public class PlayerAnimatorController : AnimatorController
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        base.Start();
+        base.Awake();
     }
 
     private void FixedUpdate()

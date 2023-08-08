@@ -99,7 +99,7 @@ TextureImporter:
       213: 4454473898492613398
     second: tilesheet_itchio_31
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -120,6 +120,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -158,6 +159,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -185,6 +187,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -859,6 +885,38 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      tilesheet_itchio_2: 3123929089499740218
+      tilesheet_itchio_12: -4059248819142760296
+      tilesheet_itchio_23: -9019988447532258182
+      tilesheet_itchio_30: 4985745498161601694
+      tilesheet_itchio_7: -6540952109784745672
+      tilesheet_itchio_16: -4542398125690366727
+      tilesheet_itchio_1: 2276944811049246939
+      tilesheet_itchio_8: -5079682934364185913
+      tilesheet_itchio_10: 1600825472322798456
+      tilesheet_itchio_0: -1488598660360441788
+      tilesheet_itchio_21: 7228523197453885892
+      tilesheet_itchio_28: 8844597700752824158
+      tilesheet_itchio_15: -8383769464570673754
+      tilesheet_itchio_11: 8889764028832277950
+      tilesheet_itchio_14: -6517327924689253967
+      tilesheet_itchio_6: 953963691129929948
+      tilesheet_itchio_29: 3932346096597231480
+      tilesheet_itchio_19: 3410698824756873485
+      tilesheet_itchio_4: 3634000498373047458
+      tilesheet_itchio_26: -1088493081005395656
+      tilesheet_itchio_5: 3700462386012292322
+      tilesheet_itchio_24: 3051700194554269113
+      tilesheet_itchio_25: 1394134524727391508
+      tilesheet_itchio_20: -4332337898693800393
+      tilesheet_itchio_3: -7274815392391220767
+      tilesheet_itchio_22: 1577497726432635768
+      tilesheet_itchio_13: -5163372054294369156
+      tilesheet_itchio_17: 5241894066058708657
+      tilesheet_itchio_31: 4454473898492613398
+      tilesheet_itchio_18: 5068925523784954572
+      tilesheet_itchio_9: 8694363249485169738
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -84,7 +84,7 @@ TextureImporter:
       213: 6709434447946085510
     second: kbrown_sprites-Sheet_26
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -105,6 +105,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -143,6 +144,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -170,6 +172,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -760,6 +786,34 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      kbrown_sprites-Sheet_19: -1626416391570943641
+      kbrown_sprites-Sheet_24: -7594229728091915862
+      kbrown_sprites-Sheet_20: 2789329577724924782
+      kbrown_sprites-Sheet_10: -8149580802141175039
+      kbrown_sprites-Sheet_0: 8071663112148166413
+      kbrown_sprites-Sheet_9: 1384547655137882990
+      kbrown_sprites-Sheet_22: 7390271047330897219
+      kbrown_sprites-Sheet_8: -888531576150687140
+      kbrown_sprites-Sheet_5: -5742527768437670662
+      kbrown_sprites-Sheet_23: 1003825573620863151
+      kbrown_sprites-Sheet_17: -1271431914265530908
+      kbrown_sprites-Sheet_3: 5364758029226039473
+      kbrown_sprites-Sheet_2: 607540881190046545
+      kbrown_sprites-Sheet_12: -6432093674596644343
+      kbrown_sprites-Sheet_21: -3974797496164403326
+      kbrown_sprites-Sheet_11: -6550966103890623840
+      kbrown_sprites-Sheet_4: -572740805558484957
+      kbrown_sprites-Sheet_14: 1997570995100874264
+      kbrown_sprites-Sheet_7: -1334033269772732921
+      kbrown_sprites-Sheet_26: 6709434447946085510
+      kbrown_sprites-Sheet_1: 9083313070502717544
+      kbrown_sprites-Sheet_16: -2240475722871883767
+      kbrown_sprites-Sheet_15: -8499615742467995933
+      kbrown_sprites-Sheet_13: -3317697776971223360
+      kbrown_sprites-Sheet_18: 6124226424455007193
+      kbrown_sprites-Sheet_6: -5185030281896454676
+      kbrown_sprites-Sheet_25: -8177079415080293897
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
